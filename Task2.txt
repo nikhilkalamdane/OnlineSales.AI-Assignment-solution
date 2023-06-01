@@ -28,4 +28,6 @@ output = data.groupby(['NAME_x'])['AMT'].mean().sort_values(ascending=False).hea
 
 # It will show final output as top 3 departments along with their name and average monthly salary
 print(output.to_string())
+
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

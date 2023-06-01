@@ -5,6 +5,7 @@ Solution :
 2. I have used join to get output of combine tables.
 
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 select d.name as "DEPT_NAME", avg(s.amt) as "AVG_MONTHLY_SALARY (USD)" 
 from salaries as s 
@@ -14,3 +15,5 @@ join departments as d
 on d.id = e.dept_id
 group by d.name
 order by avg(s.amt) desc limit 3;
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
