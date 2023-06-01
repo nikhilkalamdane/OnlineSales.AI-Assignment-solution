@@ -1,0 +1,31 @@
+Task 2 : With the same attachment, use each worksheet as a CSV file and write a script (Bash or Python) that generates the same report.
+Data is to be read from the CSV files not from a database.
+
+Solution : 
+1. Here, I am pandas which is library of python which is used for working with datasets.
+2. Firstly, reading all csv data using read_csv inbuilt function.
+3. Then joining departments and employees table using merge function and combine with them with salaries table.
+4. For final output, I am using inbuilt function such as groupby, mean, sort_values, head respectively.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import pandas as pd
+
+departments = pd.read_csv('Departments.csv')
+employees = pd.read_csv("Employees.csv")
+salaries = pd.read_csv("Salaries.csv")
+
+dept_emp = pd.merge(departments,employees, left_on='ID',right_on='DEPT_ID')
+
+data = pd.merge(dept_emp,salaries,left_on="ID_x",right_on='EMP_ID')
+
+# It will print data from all three tables after merging
+print(data.to_string())
+
+
+output = data.groupby(['NAME_x'])['AMT'].mean().sort_values(ascending=False).head(3)
+
+# It will show final output as top 3 departments along with their name and average monthly salary
+print(output.to_string())
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

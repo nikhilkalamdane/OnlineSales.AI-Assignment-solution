@@ -1,0 +1,16 @@
+Task 1 : Fetch top 3 departments along with their name and average monthly salary. Below is the format of the report.
+
+Solution : 
+1. First, I have import all csv files as a table.
+2. I have used join to get output of combine tables.
+
+
+
+select d.name as "DEPT_NAME", avg(s.amt) as "AVG_MONTHLY_SALARY (USD)" 
+from salaries as s 
+join employees as e
+on e.id = s.emp_id
+join departments as d
+on d.id = e.dept_id
+group by d.name
+order by avg(s.amt) desc limit 3;
